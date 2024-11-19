@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome to Your HR Training Dashboard</h2>
+    <p>Hi {{ user.username }}! Here you can find your training materials and HR resources.</p>
+    
+    <ul>
+        <li><a href="#">Training Modules</a></li>
+        <li><a href="#">Company Handbook</a></li>
+        <li><a href="#">HR Policies</a></li>
+    </ul>
+
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+</body>
+</html>
