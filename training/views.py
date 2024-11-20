@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+import os
+from django.conf import settings
+from django.http import HttpResponse
 
 # Logout view
 def logout_view(request):
@@ -41,14 +44,15 @@ def dashboard_view(request):
     """Renders the dashboard page, accessible only to logged-in users."""
     return render(request, 'training/dashboard.html')
 
-# Static file debugging view (Optional: For diagnosing static file issues)
+# Static file debugging view
 def static_debug_view(request):
-    """Lists static files for debugging purposes."""
-    import os
-    from django.conf import settings
+    """Lists all collected static files for debugging purposes."""
     static_dir = settings.STATIC_ROOT
+    if not os.path.exists(static_dir):
+        return HttpResponse("Static files directory does not exist. Run collectstatic first.")
+    
     files = []
     for root, dirs, filenames in os.walk(static_dir):
         for filename in filenames:
             files.append(os.path.relpath(os.path.join(root, filename), static_dir))
-    return render(request, 'training/static_debug.html', {'files': files})
+    return HttpResponse('<br>'.join(files))
