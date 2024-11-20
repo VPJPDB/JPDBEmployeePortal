@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security Settings
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-default-secret-key')  # Replace with a secure key in production
 DEBUG = os.environ.get('DEBUG', 'True').lower() in ['true', '1']
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost,.onrender.com').split(',')  # Allow Render's domain
 
 # Authentication Redirects
 LOGIN_URL = '/login/'  # Where users go when they need to log in
@@ -96,6 +96,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default Primary Key Field Type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 
