@@ -5,11 +5,10 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
 
 def home(request):
-    # Show login/register links if the user is not logged in, or dashboard/logout if they are.
     if request.user.is_authenticated:
-        return HttpResponse("Welcome to the HR Training Portal! <a href='/dashboard/'>Go to Dashboard</a> | <a href='/logout/'>Logout</a>")
+        return render(request, 'training/home_logged_in.html')
     else:
-        return HttpResponse("Welcome to the HR Training Portal! <a href='/login/'>Login</a> | <a href='/register/'>Register</a>")
+        return render(request, 'training/home_logged_out.html')
 
 def register(request):
     if request.method == 'POST':
@@ -18,7 +17,9 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
-            return redirect('login')  # Redirect to login page after successful registration
+            return redirect('login')
+        else:
+            messages.error(request, 'Please correct the errors below.')
     else:
         form = UserRegisterForm()
     return render(request, 'training/register.html', {'form': form})
