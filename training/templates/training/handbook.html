@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Handbook - John Paul Design Build</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .header {
+            background-color: #333; /* Dark Gray */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .header h2 {
+            margin: 10px 0 0;
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: #ccc; /* Light Gray for a softer secondary text */
+        }
+        .content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 1px solid #ccc; /* Light Gray Border */
+        }
+        .content h2 {
+            color: #333; /* Darker Gray */
+            margin-top: 0;
+        }
+        .content p {
+            line-height: 1.8;
+            color: #555; /* Medium Gray for text */
+        }
+        .content ul {
+            color: #555; /* Medium Gray for lists */
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777; /* Lighter Gray for footer text */
+        }
+        .footer a {
+            color: #333; /* Dark Gray for links */
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333; /* Dark Gray */
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .cta a:hover {
+            background-color: #555; /* Slightly lighter Gray */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Welcome to Your Employee Handbook</h1>
+        <h2>John Paul Design Build</h2>
+    </div>
+
+    <div class="content">
+        <h2>Introduction</h2>
+        <p>
+            Welcome to the John Paul Design Build team! We are excited to have you as part of our family.
+            This handbook serves as your guide to understanding our company’s mission, values, policies,
+            and procedures.
+        </p>
+
+        <h2>Our Mission</h2>
+        <p>
+            At John Paul Design Build, we strive to create extraordinary designs that stand the test of time.
+            We believe in innovation, integrity, and collaboration as the foundation of our work.
+        </p>
+
+        <h2>What’s Inside</h2>
+        <ul>
+            <li>Company Policies</li>
+            <li>Code of Conduct</li>
+            <li>Health and Safety Guidelines</li>
+            <li>Workplace Procedures</li>
+            <li>Frequently Asked Questions</li>
+        </ul>
+
+        <div class="cta">
+            <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            For any questions or concerns, feel free to reach out to HR at <a href="mailto:hr@johnpauldesignbuild.com">hr@johnpauldesignbuild.com</a>.
+        </p>
+    </div>
+
+</body>
+</html>
+

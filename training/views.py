@@ -1,29 +1,31 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm
+from .forms import RegisterForm  # Import RegisterForm correctly
+from django.shortcuts import render
+from django.contrib.auth import logout
 
-def home(request):
-    # Show login/register links if the user is not logged in, or dashboard/logout if they are.
-    if request.user.is_authenticated:
-        return HttpResponse("Welcome to the HR Training Portal! <a href='/dashboard/'>Go to Dashboard</a> | <a href='/logout/'>Logout</a>")
-    else:
-        return HttpResponse("Welcome to the HR Training Portal! <a href='/login/'>Login</a> | <a href='/register/'>Register</a>")
+def logout_view(request):
+    logout(request)
+    return redirect('login')  # Redirects to the login page after logging out
 
-def register(request):
+
+def handbook(request):
+    return render(request, 'training/handbook.html')  # Ensure this template exists
+
+
+def login_view(request):
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
+        form = AuthenticationForm(data=request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
-            return redirect('login')  # Redirect to login page after successful registration
+            user = form.get_user()
+            login(request, user)
+            return redirect('dashboard')
     else:
-        form = UserRegisterForm()
-    return render(request, 'training/register.html', {'form': form})
+        form = AuthenticationForm()
+    return render(request, 'training/login.html', {'form': form})
 
 @login_required
-def dashboard(request):
+def dashboard_view(request):
     return render(request, 'training/dashboard.html')
-
