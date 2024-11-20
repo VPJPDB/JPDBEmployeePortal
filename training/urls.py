@@ -1,11 +1,11 @@
 from django.urls import path
-from . import views  # Import views from the current app
-from django.contrib.auth.views import LogoutView
+from . import views
 
 urlpatterns = [
+    path('', views.dashboard_view, name='dashboard'),  # Root URL redirects to dashboard
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
     path('dashboard/', views.dashboard_view, name='dashboard'),
     path('handbook/', views.handbook, name='handbook'),
-    path('login/', views.login_view, name='login'),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'), 
 ]
 
