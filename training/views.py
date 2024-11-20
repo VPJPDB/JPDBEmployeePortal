@@ -1,19 +1,21 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm  # Import RegisterForm correctly
-from django.shortcuts import render
-from django.contrib.auth import logout
 
 def logout_view(request):
     logout(request)
     return redirect('login')  # Redirects to the login page after logging out
 
+def home(request):
+    if request.user.is_authenticated:
+        return render(request, 'training/home_logged_in.html')
+    else:
+        return render(request, 'training/home_logged_out.html')
 
 def handbook(request):
     return render(request, 'training/handbook.html')  # Ensure this template exists
-
 
 def login_view(request):
     if request.method == 'POST':
