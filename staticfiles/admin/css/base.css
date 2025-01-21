@@ -5,56 +5,56 @@
 /* VARIABLE DEFINITIONS */
 html[data-theme="light"],
 :root {
-    --primary: #79aec8;
-    --secondary: #417690;
-    --accent: #f5dd5d;
-    --primary-fg: #fff;
+    --primary: #000; /* Black */
+    --secondary: #333; /* Dark Gray */
+    --accent: #ccc; /* Light Gray */
+    --primary-fg: #fff; /* White */
 
-    --body-fg: #333;
-    --body-bg: #fff;
-    --body-quiet-color: #666;
-    --body-medium-color: #444;
-    --body-loud-color: #000;
+    --body-fg: #333; /* Dark Gray */
+    --body-bg: #fff; /* White */
+    --body-quiet-color: #666; /* Medium Gray */
+    --body-medium-color: #444; /* Medium Dark Gray */
+    --body-loud-color: #000; /* Black */
 
-    --header-color: #ffc;
-    --header-branding-color: var(--accent);
-    --header-bg: var(--secondary);
-    --header-link-color: var(--primary-fg);
+    --header-color: #fff; /* White */
+    --header-branding-color: var(--accent); /* Light Gray */
+    --header-bg: var(--secondary); /* Dark Gray */
+    --header-link-color: var(--primary-fg); /* White */
 
-    --breadcrumbs-fg: #c4dce8;
-    --breadcrumbs-link-fg: var(--body-bg);
-    --breadcrumbs-bg: #264b5d;
+    --breadcrumbs-fg: #ccc; /* Light Gray */
+    --breadcrumbs-link-fg: var(--body-bg); /* White */
+    --breadcrumbs-bg: #333; /* Dark Gray */
 
-    --link-fg: #417893;
-    --link-hover-color: #036;
-    --link-selected-fg: var(--secondary);
+    --link-fg: #000; /* Black */
+    --link-hover-color: #666; /* Medium Gray */
+    --link-selected-fg: var(--secondary); /* Dark Gray */
 
-    --hairline-color: #e8e8e8;
-    --border-color: #ccc;
+    --hairline-color: #e8e8e8; /* Light Gray */
+    --border-color: #ccc; /* Light Gray */
 
-    --error-fg: #ba2121;
+    --error-fg: #ba2121; /* Red */
 
-    --message-success-bg: #dfd;
-    --message-warning-bg: #ffc;
-    --message-error-bg: #ffefef;
+    --message-success-bg: #dfd; /* Light Green */
+    --message-warning-bg: #ffc; /* Light Yellow */
+    --message-error-bg: #ffefef; /* Light Red */
 
     --darkened-bg: #f8f8f8; /* A bit darker than --body-bg */
     --selected-bg: #e4e4e4; /* E.g. selected table cells */
-    --selected-row: #ffc;
+    --selected-row: #ffc; /* Light Yellow */
 
-    --button-fg: #fff;
-    --button-bg: var(--secondary);
-    --button-hover-bg: #205067;
-    --default-button-bg: #205067;
-    --default-button-hover-bg: var(--secondary);
-    --close-button-bg: #747474;
-    --close-button-hover-bg: #333;
-    --delete-button-bg: #ba2121;
-    --delete-button-hover-bg: #a41515;
+    --button-fg: #fff; /* White */
+    --button-bg: var(--secondary); /* Dark Gray */
+    --button-hover-bg: #444; /* Medium Dark Gray */
+    --default-button-bg: #444; /* Medium Dark Gray */
+    --default-button-hover-bg: var(--secondary); /* Dark Gray */
+    --close-button-bg: #666; /* Medium Gray */
+    --close-button-hover-bg: #333; /* Dark Gray */
+    --delete-button-bg: #ba2121; /* Red */
+    --delete-button-hover-bg: #a41515; /* Dark Red */
 
-    --object-tools-fg: var(--button-fg);
-    --object-tools-bg: var(--close-button-bg);
-    --object-tools-hover-bg: var(--close-button-hover-bg);
+    --object-tools-fg: var(--button-fg); /* White */
+    --object-tools-bg: var(--close-button-bg); /* Medium Gray */
+    --object-tools-hover-bg: var(--close-button-hover-bg); /* Dark Gray */
 
     --font-family-primary:
         "Segoe UI",

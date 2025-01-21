@@ -22,8 +22,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # Site framework support
+    'allauth',  # Authentication
+    'allauth.account',  # Authentication
+    'allauth.socialaccount',  # Authentication
     'training',  # Your custom app
 ]
+
+SITE_ID = 1  # Site framework configuration
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',  # Allauth
+]
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # Disable email verification
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -96,4 +109,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default Primary Key Field Type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
