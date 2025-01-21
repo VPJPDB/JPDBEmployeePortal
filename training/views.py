@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 import os
 from django.conf import settings
 from django.http import HttpResponse
+from .forms import HRReportForm, SafetySurveyForm, CheckInForm, TrainingFollowUpForm
 
 # Logout view
 def logout_view(request):
@@ -56,3 +57,55 @@ def static_debug_view(request):
         for filename in filenames:
             files.append(os.path.relpath(os.path.join(root, filename), static_dir))
     return HttpResponse('<br>'.join(files))
+
+# HR Report view
+@login_required
+def hr_report_view(request):
+    """Handles HR report form submission."""
+    if request.method == 'POST':
+        form = HRReportForm(request.POST)
+        if form.is_valid():
+            # Process the form data
+            return redirect('dashboard')
+    else:
+        form = HRReportForm()
+    return render(request, 'training/hr_report.html', {'form': form})
+
+# Safety Survey view
+@login_required
+def safety_survey_view(request):
+    """Handles safety survey form submission."""
+    if request.method == 'POST':
+        form = SafetySurveyForm(request.POST)
+        if form.is_valid():
+            # Process the form data
+            return redirect('dashboard')
+    else:
+        form = SafetySurveyForm()
+    return render(request, 'training/safety_survey.html', {'form': form})
+
+# Check-In view
+@login_required
+def check_in_view(request):
+    """Handles check-in form submission."""
+    if request.method == 'POST':
+        form = CheckInForm(request.POST)
+        if form.is_valid():
+            # Process the form data
+            return redirect('dashboard')
+    else:
+        form = CheckInForm()
+    return render(request, 'training/check_in.html', {'form': form})
+
+# Training Follow-Up view
+@login_required
+def training_follow_up_view(request):
+    """Handles training follow-up form submission."""
+    if request.method == 'POST':
+        form = TrainingFollowUpForm(request.POST)
+        if form.is_valid():
+            # Process the form data
+            return redirect('dashboard')
+    else:
+        form = TrainingFollowUpForm()
+    return render(request, 'training/training_follow_up.html', {'form': form})
