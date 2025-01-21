@@ -23,6 +23,9 @@ def main():
             ) from exc
         execute_from_command_line(sys.argv)
 
+    # Run migrations
+    os.system("python manage.py migrate")
+
 
 if __name__ == '__main__':
     main()
