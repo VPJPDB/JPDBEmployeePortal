@@ -26,6 +26,10 @@ def main():
     # Run migrations
     os.system("python manage.py migrate")
 
+    # Stop and restart the server after making changes to settings.py
+    os.system("python manage.py runserver --noreload")
+    os.system("python manage.py runserver")
+    
 
 if __name__ == '__main__':
     main()
